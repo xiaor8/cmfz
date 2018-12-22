@@ -43,14 +43,12 @@ public class BannerServiceImpl implements BannerService {
     }
 
     @Override
-    public void deleteOneById(Integer id) {
-        //根据id查询轮播图的信息
-        Banner banner = bannerMapper.selectByPrimaryKey(id);
+    public void deleteOne(Banner banner) {
         String imgPath = banner.getImgPath();
         File file = new File("./src/main/webapp/img/" + imgPath);
         //删除本地的图片文件
         file.delete();
         //删除数据库中该轮播图的记录
-        bannerMapper.deleteByPrimaryKey(id);
+        bannerMapper.deleteByPrimaryKey(banner);
     }
 }

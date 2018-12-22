@@ -13,6 +13,7 @@
 
         $("#bannerDatagrid").edatagrid({
             updateUrl: "${pageContext.request.contextPath}/banner/updateOne",
+            destroyUrl: "${pageContext.request.contextPath}/banner/updateOne",
             fitColumns:true,
             fit:true,
             pagination:true,
@@ -22,7 +23,6 @@
                 iconCls: 'icon-add',
                 text: "添加",
                 handler: function(){
-                    alert("1231")
                     $("#bannerAddPanel").dialog("open")
                 }
             },'-',{
@@ -41,7 +41,16 @@
             },'-',{
                 iconCls: 'icon-remove',
                 text: "删除",
-                handler: function(){alert('帮助按钮')}
+                handler: function(){
+                    var row = $("#bannerDatagrid").edatagrid("getSelected");
+                    if(row==null){
+                        alert("请选中一行");
+                    }else{
+                        var index = $("#bannerDatagrid").edatagrid("getRowIndex",row);
+                        console.log(index);
+                        $("#bannerDatagrid").edatagrid("", index);
+                    }
+                }
             },'-',{
                 iconCls: 'icon-save',
                 text: "保存",

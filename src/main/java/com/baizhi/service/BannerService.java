@@ -11,5 +11,5 @@ public interface BannerService {
     //添加轮播图
     public void insertOne(Banner banner);
     //删除轮播图
-    public void deleteOneById(Integer id);
+    public void deleteOne(Banner banner);
 }

@@ -51,4 +51,9 @@ public class BannerController {
         banner.setImgPath(newFileName);
         bannerService.insertOne(banner);
     }
+
+    @RequestMapping("/deleteOne")
+    public void deleteOne(Banner banner){
+        bannerService.deleteOne(banner);
+    }
 }
