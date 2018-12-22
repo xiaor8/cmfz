@@ -13,7 +13,7 @@
 
         $("#bannerDatagrid").edatagrid({
             updateUrl: "${pageContext.request.contextPath}/banner/updateOne",
-            destroyUrl: "${pageContext.request.contextPath}/banner/updateOne",
+            destroyUrl: "${pageContext.request.contextPath}/banner/deleteOne",
             fitColumns:true,
             fit:true,
             pagination:true,
@@ -48,7 +48,7 @@
                     }else{
                         var index = $("#bannerDatagrid").edatagrid("getRowIndex",row);
                         console.log(index);
-                        $("#bannerDatagrid").edatagrid("", index);
+                        $("#bannerDatagrid").edatagrid("destroyRow", index);
                     }
                 }
             },'-',{

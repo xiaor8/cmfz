@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -43,8 +44,9 @@ public class BannerServiceImpl implements BannerService {
     }
 
     @Override
-    public void deleteOne(Banner banner) {
-        String imgPath = banner.getImgPath();
+    public void deleteOne(Banner banner) throws IOException {
+        Banner banner1 = bannerMapper.selectByPrimaryKey(banner.getId());
+        String imgPath = banner1.getImgPath();
         File file = new File("./src/main/webapp/img/" + imgPath);
         //删除本地的图片文件
         file.delete();
@@ -52,3 +54,17 @@ public class BannerServiceImpl implements BannerService {
         bannerMapper.deleteByPrimaryKey(banner);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

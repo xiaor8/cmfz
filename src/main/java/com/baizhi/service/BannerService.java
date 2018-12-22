@@ -3,6 +3,8 @@ package com.baizhi.service;
 import com.baizhi.dto.BannerDto;
 import com.baizhi.entity.Banner;
 
+import java.io.IOException;
+
 public interface BannerService {
     //查看轮播图
     public BannerDto queryAll(Integer page,Integer rows);
@@ -11,5 +13,9 @@ public interface BannerService {
     //添加轮播图
     public void insertOne(Banner banner);
     //删除轮播图
-    public void deleteOne(Banner banner);
+    public void deleteOne(Banner banner) throws IOException;
 }
+
+
+
+
