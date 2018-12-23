@@ -1,6 +1,7 @@
 package com.baizhi.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,4 +27,5 @@ public class Album implements Serializable {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH-mm-ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH-mm-ss")
     private Date pubDate;
+    private List<Chapter> children;
 }

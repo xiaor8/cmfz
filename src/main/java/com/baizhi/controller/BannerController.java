@@ -54,6 +54,10 @@ public class BannerController {
 
     @RequestMapping("/deleteOne")
     public void deleteOne(Banner banner){
-        bannerService.deleteOne(banner);
+        try {
+            bannerService.deleteOne(banner);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -43,7 +43,7 @@
             $('#tt').tabs("select",title);
         }else{
             $('#tt').tabs('add',{
-                href:"${pageContext.request.contextPath}/datagrid/banner.jsp",
+                href:"${pageContext.request.contextPath}/datagrid/"+url,
                 title: title,
                 selected: true,
                 closable: true
